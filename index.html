@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Веб-разработка для локального бизнеса</title>
+    <title>Веб-разработка для локального бизнеса | Беларусь</title>
     <style>
         :root {
             --primary: #2563eb;
@@ -16,7 +16,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
         body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        
+
         /* Кнопки */
         .btn {
             display: inline-block; background: var(--primary); color: var(--white);
@@ -26,6 +26,10 @@
         .btn:hover { background: var(--primary-hover); transform: translateY(-2px); }
         .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); margin-left: 15px; }
         .btn-outline:hover { background: var(--primary); color: var(--white); }
+        .btn-green { background: #16a34a; }
+        .btn-green:hover { background: #15803d; }
+        .btn-purple { background: #7c3aed; }
+        .btn-purple:hover { background: #6d28d9; }
 
         /* Шапка */
         header { padding: 20px 0; background: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
@@ -39,17 +43,17 @@
         .hero { padding: 100px 0; text-align: center; background: linear-gradient(to bottom, var(--white), var(--light)); }
         .hero h1 { font-size: 48px; margin-bottom: 20px; line-height: 1.2; }
         .hero p { font-size: 20px; color: var(--gray); max-width: 700px; margin: 0 auto 40px; }
+        .hero .note { font-size: 14px; color: var(--gray); margin-top: 25px; }
 
         /* Секции */
         section { padding: 80px 0; }
         .section-title { text-align: center; font-size: 36px; margin-bottom: 50px; }
-        
+
         /* Портфолио */
         .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
         .card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-        .card-img { height: 220px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: bold; }
-        /* Заглушки для картинок (градиенты) */
+        .card-img { height: 220px; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; font-weight: bold; text-align: center; padding: 0 15px; }
         .bg-1 { background: linear-gradient(45deg, #1e3c72, #2a5298); }
         .bg-2 { background: linear-gradient(45deg, #e65c00, #f9d423); }
         .bg-3 { background: linear-gradient(45deg, #11998e, #38ef7d); }
@@ -73,12 +77,16 @@
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
         .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 16px; }
-        
+        .divider { text-align: center; color: var(--gray); margin: 30px 0 20px; font-size: 15px; }
+        .messengers { text-align: center; }
+        .messengers .btn { margin: 5px; }
+        .legal { text-align: center; color: var(--gray); font-size: 13px; margin-top: 25px; }
+
         footer { background: var(--dark); color: #94a3b8; text-align: center; padding: 40px 0; margin-top: 80px; }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 32px; }
-            nav { display: none; } /* В реальном проекте здесь будет бургер-меню */
+            nav { display: none; }
             .btn-outline { margin-left: 0; margin-top: 15px; display: block; text-align: center; }
         }
     </style>
@@ -101,9 +109,10 @@
     <section class="hero">
         <div class="container">
             <h1>Сайты, которые приводят клиентов вашему бизнесу</h1>
-            <p>Разрабатываю современные и продающие сайты для локального бизнеса: от автосервисов до салонов красоты. Быстро, стильно, с акцентом на заявки.</p>
+            <p>Разрабатываю современные и продающие сайты для локального бизнеса Беларуси: от автосервисов и салонов красоты до кафе и стройкомпаний. От идеи до первых заявок — за 7 дней.</p>
             <a href="#contact" class="btn">Обсудить проект</a>
             <a href="#portfolio" class="btn btn-outline">Смотреть кейсы</a>
+            <div class="note">Работаю официально: чек через приложение «Профдоход»</div>
         </div>
     </section>
 
@@ -112,30 +121,27 @@
         <div class="container">
             <h2 class="section-title">Примеры работ и концепты</h2>
             <div class="portfolio-grid">
-                <!-- Кейс 1 -->
                 <div class="card">
-                    <div class="card-img bg-1">Ремонт квартир под ключ</div>
+                    <div class="card-img bg-1">Ремонт квартир под ключ · Гродно</div>
                     <div class="card-content">
-                        <h3>Строительная компания "ГрандСтрой"</h3>
-                        <p>Лендинг с калькулятором стоимости ремонта и квизом. Увеличение заявок на 40% за первый месяц.</p>
+                        <h3>Строительная компания «ГрандСтрой»</h3>
+                        <p>Лендинг с калькулятором стоимости ремонта и квизом. Увеличение заявок на 40% за первый месяц после запуска рекламы.</p>
                         <span class="tag">Лендинг</span> <span class="tag">Квиз</span>
                     </div>
                 </div>
-                <!-- Кейс 2 -->
                 <div class="card">
-                    <div class="card-img bg-2">Стоматология премиум-класса</div>
+                    <div class="card-img bg-2">Стоматология премиум-класса · Минск</div>
                     <div class="card-content">
-                        <h3>Клиника "Белый Кит"</h3>
-                        <p>Многостраничный сайт с онлайн-записью, интеграцией с Яндекс.Картами и отзывами пациентов.</p>
+                        <h3>Клиника «Белый Кит»</h3>
+                        <p>Многостраничный сайт с онлайн-записью, интеграцией с Яндекс.Картами и Google Maps, блоком отзывов пациентов.</p>
                         <span class="tag">Корпоративный</span> <span class="tag">Онлайн-запись</span>
                     </div>
                 </div>
-                <!-- Кейс 3 -->
                 <div class="card">
-                    <div class="card-img bg-3">Автосервис и детейлинг</div>
+                    <div class="card-img bg-3">Автосервис и детейлинг · Брест</div>
                     <div class="card-content">
-                        <h3>Гараж "V8 Motors"</h3>
-                        <p>Одностраничник для запуска рекламы на горячих клиентов. Форма быстрой записи на диагностику.</p>
+                        <h3>Гараж «V8 Motors»</h3>
+                        <p>Одностраничник для запуска рекламы на горячих клиентов. Форма быстрой записи на диагностику в один клик.</p>
                         <span class="tag">Лендинг</span> <span class="tag">Лид-форма</span>
                     </div>
                 </div>
@@ -143,31 +149,31 @@
         </div>
     </section>
 
-    <!-- Услуги и Цены -->
+    <!-- Услуги и цены -->
     <section id="services" style="background: var(--white);">
         <div class="container">
             <h2 class="section-title">Тарифы и услуги</h2>
             <div class="services-grid">
                 <div class="price-card">
-                    <h3>Лендинг (Одностраничник)</h3>
-                    <div class="price">от 25 000 ₽</div>
+                    <h3>Лендинг (одностраничник)</h3>
+                    <div class="price">от 400 BYN</div>
                     <ul>
-                        <li>Идеально для рекламы (Директ, соцсети)</li>
+                        <li>Идеально под рекламу (Директ, соцсети)</li>
                         <li>Продающая структура и тексты</li>
                         <li>Адаптив под все смартфоны</li>
-                        <li>Форма захвата заявок (Лид-форма)</li>
+                        <li>Форма захвата заявок (лид-форма)</li>
                     </ul>
                     <a href="#contact" class="btn" style="width: 100%;">Заказать</a>
                 </div>
-                
+
                 <div class="price-card featured">
                     <div class="badge">Популярный</div>
                     <h3>Сайт-визитка + Карты</h3>
-                    <div class="price">от 40 000 ₽</div>
+                    <div class="price">от 650 BYN</div>
                     <ul>
                         <li>До 5 страниц (Услуги, О нас, Цены)</li>
-                        <li>Интеграция с Яндекс.Картами и 2GIS</li>
-                        <li>Кнопки звонка и мессенджеров</li>
+                        <li>Интеграция с Яндекс.Картами и Google Maps</li>
+                        <li>Кнопки звонка, Viber и Telegram</li>
                         <li>Базовая SEO-настройка для поиска</li>
                     </ul>
                     <a href="#contact" class="btn" style="width: 100%;">Заказать</a>
@@ -179,7 +185,7 @@
                     <ul>
                         <li>Глубокий анализ конкурентов</li>
                         <li>Сайт + настройка Яндекс.Директ</li>
-                        <li>Подключение аналитики (Метрика)</li>
+                        <li>Подключение Яндекс.Метрики</li>
                         <li>Техническая поддержка</li>
                     </ul>
                     <a href="#contact" class="btn" style="width: 100%;">Обсудить</a>
@@ -193,29 +199,41 @@
         <div class="container">
             <h2 class="section-title">Обсудим ваш проект?</h2>
             <div class="contact-form">
-                <form action="#" method="POST">
+                <form action="https://formsubmit.co/ilakogan231@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="Новая заявка с сайта WEBLOCAL!">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://ilyaaa432.github.io/weblocal/">
                     <div class="form-group">
                         <label>Ваше имя</label>
-                        <input type="text" placeholder="Иван" required>
+                        <input type="text" name="Имя" placeholder="Иван" required>
                     </div>
                     <div class="form-group">
                         <label>Телефон или мессенджер</label>
-                        <input type="tel" placeholder="+7 (999) 000-00-00" required>
+                        <input type="tel" name="Контакт" placeholder="+375 (29) 123-45-67" required>
                     </div>
                     <div class="form-group">
                         <label>Расскажите о вашем бизнесе</label>
-                        <textarea rows="4" placeholder="Например: нужен сайт для кофейни, чтобы привлекать людей с улицы и доставок"></textarea>
+                        <textarea rows="4" name="Сообщение" placeholder="Например: нужен сайт для кофейни в Минске, чтобы привлекать людей с улицы и доставок"></textarea>
                     </div>
                     <button type="submit" class="btn" style="width: 100%;">Отправить заявку</button>
                 </form>
+
+                <div class="divider">— или напишите напрямую —</div>
+                <div class="messengers">
+                    <a class="btn btn-purple" href="https://t.me/Ilya_kgn" target="_blank">Написать в Telegram</a>
+                    <a class="btn btn-green" href="viber://chat?number=375291958256" target="_blank">Написать в Viber</a>
+                </div>
+
+                <div class="legal">Работаю официально как плательщик налога на профессиональный доход — выдаю чек.</div>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>© 2026 WEBLOCAL. Разработка сайтов для локального бизнеса.</p>
-            <p style="margin-top: 10px;">Телефон: +7 (999) 000-00-00 | Telegram: @ваш_ник</p>
+            <p>© 2026 WEBLOCAL. Разработка сайтов для локального бизнеса в Беларуси.</p>
+            <p style="margin-top: 10px;">Тел: +375 (29) 195-82-56 | Telegram: @Ilya_kgn | Viber: +375 29 195-82-56</p>
         </div>
     </footer>
 
