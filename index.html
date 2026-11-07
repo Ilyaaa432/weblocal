@@ -199,25 +199,47 @@
         <div class="container">
             <h2 class="section-title">Обсудим ваш проект?</h2>
             <div class="contact-form">
-                <form action="https://formsubmit.co/ilakogan231@gmail.com" method="POST">
-                    <input type="hidden" name="_subject" value="Новая заявка с сайта WEBLOCAL!">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="https://ilyaaa432.github.io/weblocal/">
-                    <div class="form-group">
-                        <label>Ваше имя</label>
-                        <input type="text" name="Имя" placeholder="Иван" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Телефон или мессенджер</label>
-                        <input type="tel" name="Контакт" placeholder="+375 (29) 123-45-67" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Расскажите о вашем бизнесе</label>
-                        <textarea rows="4" name="Сообщение" placeholder="Например: нужен сайт для кофейни в Минске, чтобы привлекать людей с улицы и доставок"></textarea>
-                    </div>
-                    <button type="submit" class="btn" style="width: 100%;">Отправить заявку</button>
-                </form>
+               <form id="leadForm">
+    <div class="form-group">
+        <label>Ваше имя</label>
+        <input type="text" id="fName" placeholder="Иван" required>
+    </div>
+    <div class="form-group">
+        <label>Телефон или мессенджер</label>
+        <input type="tel" id="fPhone" placeholder="+375 (29) 123-45-67" required>
+    </div>
+    <div class="form-group">
+        <label>Расскажите о вашем бизнесе</label>
+        <textarea rows="4" id="fMsg" placeholder="Например: нужен сайт для кофейни в Минске, чтобы привлекать людей с улицы и доставок"></textarea>
+    </div>
+    <button type="submit" class="btn" style="width: 100%;">Отправить заявку</button>
+</form>
+
+<script>
+document.getElementById('leadForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const TOKEN = '9171043712:AAHxm-tVIcyKGGORHKTjqJFo3UJnhnW_8UU';
+    const CHAT_ID = '476746655';
+    const text = '🔥 Новая заявка с сайта WEBLOCAL!\n\nИмя: ' + document.getElementById('fName').value +
+                 '\nКонтакт: ' + document.getElementById('fPhone').value +
+                 '\nО бизнесе: ' + (document.getElementById('fMsg').value || '—');
+    try {
+        const res = await fetch('https://api.telegram.org/bot' + TOKEN + '/sendMessage', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: CHAT_ID, text: text })
+        });
+        if (res.ok) {
+            alert('Спасибо! Заявка отправлена. Я свяжусь с вами в ближайшее время.');
+            this.reset();
+        } else {
+            alert('Не удалось отправить. Напишите мне напрямую в Telegram или Viber.');
+        }
+    } catch (err) {
+        alert('Ошибка сети. Напишите мне напрямую в Telegram или Viber.');
+    }
+});
+</script>
 
                 <div class="divider">— или напишите напрямую —</div>
                 <div class="messengers">
